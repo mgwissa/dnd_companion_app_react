@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import CharacterImg from "../public/images/earth_genasi.png";
+import CharacterImg from "/public/images/earth_genasi.png";
 
 const HomePage = () => {
   return (

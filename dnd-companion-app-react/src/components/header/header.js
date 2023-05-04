@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="flex">
+    <div className="flex justify-between">
       <div className="header__logo">
         <Image src={logo} alt="logo" />
       </div>
