@@ -8,7 +8,7 @@ const HomePage = () => {
     <>
       <h1>Home Page</h1>
       <div className="flex place-items-center justify-center">
-        <Image src={CharacterImg} alt="Earth Genasi" width={400} />
+        <Image src={CharacterImg} alt="Earth Genasi" priority width={400} />
       </div>
     </>
   );

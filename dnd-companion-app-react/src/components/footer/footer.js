@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer__links">
         <Link href="/">Home</Link>
         <p>
-          Go <Link href="./next">here</Link> for next js docs:
+          Go <Link href="./next">here</Link> for next js docs
         </p>
       </div>
     </footer>

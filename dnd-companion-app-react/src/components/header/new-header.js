@@ -1,20 +1,40 @@
 import Image from "next/image";
+import { useSelector } from "react-redux";
 import logo from "/public/images/logo.png";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
+import MobileNav from "../mobile-nav/mobile-nav";
 
 const NewHeader = () => {
+  const pages = useSelector((state) => state.app.pages);
+  console.log("pages", pages);
+
+  Object.keys(pages).forEach((key) => {
+    console.log("key", key);
+    console.log("pages[key]", pages[key]);
+  });
+
   return (
     <div role="navigation" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
-          {/* This is the hamburger menu */}
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-            <span className="sr-only">Open main menu</span>
-            <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-            <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-          </div>
+          <MobileNav />
           <div>
             <Image className="block h-8 w-auto " src={logo} alt="D&D"></Image>
+          </div>
+          <div className="the-pages">
+            {Object.keys(pages).forEach((key) => {
+              <a
+                key={pages[key].name}
+                href={pages[key].path}
+                className={
+                  pages[key].current
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                }
+              >
+                {key.name}
+              </a>;
+            })}
           </div>
         </div>
       </div>
