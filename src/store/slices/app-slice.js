@@ -4,42 +4,45 @@ const appSlice = createSlice({
   name: "app",
   initialState: {
     loggedIn: false,
-    pages: {
-      home: {
+    pages: [
+      {
         name: "home",
         path: "/",
         current: true,
       },
-      notes: {
+      {
         name: "notes",
         path: "/notes",
         current: false,
       },
-      characterSheet: {
+      {
         name: "character sheet",
         path: "/character-sheet",
         current: false,
       },
-      class: {
+      {
         name: "class",
         path: "/class",
         current: false,
       },
-      backstory: {
+      {
         name: "backstory",
         path: "/backstory",
         current: false,
       },
-      signIn: {
+      {
         name: "sign in",
         path: "/sign-in",
         current: false,
       },
-    },
+    ],
   },
   reducers: {
     setCurrentPage: (state, action) => {
-      state.currentPage = action.payload;
+      // state.currentPage = action.payload;
+      state.pages.forEach((page) => {
+        page.current = page.name === action.payload;
+      });
     },
     setLoggedIn: (state, action) => {
       state.loggedIn = action.payload;
