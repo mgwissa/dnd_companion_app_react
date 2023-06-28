@@ -16,7 +16,7 @@ const NewHeader = () => {
           <div>
             <Image className="block h-8 w-auto " src={logo} alt="D&D"></Image>
           </div>
-          <div className="the-pages">
+          <div className="the-pages hidden sm:block">
             {pages.map((item) => {
               return (
                 <a
